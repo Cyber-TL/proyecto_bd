@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Mi Tienda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="contenedor nav-contenido">
+      <a href="index.html" class="logo">Mi<strong>Tienda</strong></a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#productos">Productos</a>
+        <a href="contacto.html" class="activo">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="contenedor">
+    <div class="encabezado-principal">
+      <h1>Contáctanos</h1>
+      <p>¿Tienes dudas o sugerencias? Déjanos un mensaje y te responderemos pronto.</p>
+    </div>
+
+    <!-- FORMULARIO -->
+    <section class="tarjeta">
+      <h2>Envíanos un mensaje</h2>
+
+      <form id="formularioContacto">
+        <div class="fila-contacto">
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" maxlength="100" placeholder="Ej: Sebastián Martínez" required />
+          </div>
+
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" maxlength="100" placeholder="ejemplo@gmail.com" required />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" maxlength="60" placeholder="Ej: Duda sobre un producto" required />
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" rows="5" placeholder="Cuéntanos qué pasa..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-enviar">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <!-- LISTA DE MENSAJES -->
+    <section class="tarjeta">
+      <div class="cabecera-lista">
+        <h2>Mensajes recibidos (consulta GET)</h2>
+        <button type="button" id="btnRefrescar" class="btn btn-refrescar">Actualizar</button>
+      </div>
+      <p class="subtitulo-contacto">
+        Mensajes almacenados en la base de datos MySQL (consultados vía <code>GET /contacto</code>):
+      </p>
+
+      <div id="listaMensajes" class="lista-mensajes"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>&copy; 2026 Mi Tienda — Proyecto Formativo con Node.js, Express y MySQL.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
