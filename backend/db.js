@@ -16,7 +16,7 @@ const configuracion = {
     user,
     password,
     database,
-},
+};
 
 
 // Si el host es remoto (TiDB Cloud), habilitar el SSL automaticamente

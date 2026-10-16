@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://proyecto-bd-hn18.onrender.com";
 
 function escaparHTML(texto) {
   const div = document.createElement("div");
