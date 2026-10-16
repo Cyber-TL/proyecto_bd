@@ -1,4 +1,4 @@
-const API_URL = "https://proyecto-bd-1-cok6.onrender.com";
+const API_URL = "https://proyecto-bd-gk0o.onrender.com";
 
 function escaparHTML(texto) {
   const div = document.createElement("div");
