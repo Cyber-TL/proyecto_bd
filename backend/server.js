@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const conexion = require("./db");
@@ -97,6 +98,8 @@ app.delete("/contacto/:id", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor ejecutándose en http://localhost:3000");
+//Iniciar el servidor en el puerto 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });

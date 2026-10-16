@@ -1,3 +1,17 @@
+/* =========================================================
+   estilos.css — Mi Tienda · Contacto (mensajes) · azul
+   ========================================================= */
+
+:root {
+    --azul: #2563eb;
+    --azul-oscuro: #1d4ed8;
+    --azul-claro: #dbeafe;
+    --texto: #0f172a;
+    --gris: #64748b;
+    --borde: #e2e8f0;
+    --peligro: #dc2626;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +20,8 @@
 
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background-color: #f1f5f9;
+    background: linear-gradient(180deg, #eaf2ff 0%, #f8fafc 60%);
+    background-attachment: fixed;
     color: #1e293b;
     line-height: 1.6;
     min-height: 100vh;
@@ -16,14 +31,16 @@ body {
 
 .contenedor {
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* --- Navbar --- */
 .navbar {
     background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--azul);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -34,36 +51,41 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 65px;
+    max-width: 1100px;
 }
 
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 700;
     text-decoration: none;
-    color: #1e293b;
+    color: var(--texto);
 }
 
 .logo strong {
-    color: #2563eb;
+    color: var(--azul);
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 8px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #64748b;
+    color: var(--gris);
     font-weight: 500;
-    transition: color 0.2s;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.activo {
-    color: #2563eb;
+    color: var(--azul);
+    background-color: var(--azul-claro);
 }
 
+/* --- Principal --- */
 main {
     flex: 1;
     padding: 40px 20px;
@@ -71,226 +93,47 @@ main {
 
 .encabezado-principal {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .encabezado-principal h1 {
     font-size: 2rem;
-    color: #0f172a;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+.encabezado-principal h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 8px auto 0;
+    background-color: var(--azul);
+    border-radius: 999px;
 }
 
 .encabezado-principal p {
-    color: #64748b;
-    font-size: 1rem;
+    color: var(--gris);
+    margin-top: 10px;
 }
 
-.panel-tienda {
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 25px;
-    align-items: start;
-    margin-bottom: 35px;
-}
-
+/* --- Tarjeta --- */
 .tarjeta {
     background-color: #ffffff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 25px;
-}
-
-.panel-tienda .tarjeta {
-    margin-bottom: 0;
+    border-radius: 14px;
+    border-top: 4px solid var(--azul);
+    padding: 28px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+    margin-bottom: 28px;
 }
 
 .tarjeta h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: #1e293b;
     margin-bottom: 18px;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 8px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.fila-contacto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #475569;
-}
-
-input,
-textarea {
-    font-family: inherit;
-    font-size: 0.95rem;
-    padding: 10px 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-textarea {
-    resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-.btn {
-    padding: 12px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.btn:active {
-    transform: scale(0.98);
-}
-
-.acciones-form {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-guardar {
-    flex: 1;
-    background-color: #2563eb;
-    color: #ffffff;
-}
-
-.btn-guardar:hover {
-    background-color: #1d4ed8;
-}
-
-.btn-cancelar {
-    background-color: #e2e8f0;
-    color: #475569;
-}
-
-.btn-cancelar:hover {
-    background-color: #cbd5e1;
-}
-
-.btn-enviar {
-    background-color: #2563eb;
-    color: #ffffff;
-    align-self: flex-start;
-    padding: 10px 24px;
-}
-
-.btn-enviar:hover {
-    background-color: #1d4ed8;
-}
-
-.btn-refrescar {
-    background-color: #e2e8f0;
-    color: #334155;
-    padding: 8px 18px;
-}
-
-.btn-refrescar:hover {
-    background-color: #cbd5e1;
-}
-
-.lista-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.producto {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.producto h3 {
-    font-size: 1.05rem;
-    color: #0f172a;
-}
-
-.producto p {
-    font-size: 0.9rem;
-    color: #64748b;
-}
-
-.producto-precio {
-    font-weight: 700;
-    color: #2563eb !important;
-    font-size: 1.1rem !important;
-}
-
-.acciones {
-    display: flex;
-    gap: 8px;
-}
-
-.acciones button {
-    flex: 1;
-    padding: 8px;
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-editar {
-    background-color: #e2e8f0;
-    color: #334155;
-}
-
-.btn-editar:hover {
-    background-color: #cbd5e1;
-}
-
-.btn-eliminar {
-    background-color: #fee2e2;
-    color: #dc2626;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 16px;
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-eliminar:hover {
-    background-color: #fca5a5;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--borde);
 }
 
 .cabecera-lista {
@@ -305,31 +148,123 @@ textarea:focus {
 }
 
 .subtitulo-contacto {
-    color: #64748b;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    color: var(--gris);
+    font-size: 0.88rem;
+    margin-bottom: 18px;
 }
 
 .subtitulo-contacto code {
-    background: #e2e8f0;
-    color: #1d4ed8;
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.82rem;
 }
 
+/* --- Formulario --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fila-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+input,
+textarea {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    background-color: #ffffff;
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 11px 24px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-enviar {
+    background-color: var(--azul);
+    color: #ffffff;
+    align-self: flex-start;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn-enviar:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.btn-refrescar {
+    background-color: var(--azul-claro);
+    color: var(--azul-oscuro);
+    padding: 8px 18px;
+}
+
+.btn-refrescar:hover {
+    background-color: #bfdbfe;
+}
+
+/* --- Mensajes recibidos --- */
 .lista-mensajes {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 .mensaje {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 4px solid #2563eb;
-    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--azul);
+    border-radius: 12px;
     padding: 16px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mensaje:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
 }
 
 .mensaje-cabecera {
@@ -343,19 +278,22 @@ textarea:focus {
 .mensaje-nombre {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--texto);
 }
 
 .mensaje-correo {
     font-size: 0.82rem;
-    color: #2563eb;
+    color: var(--azul);
     margin-left: 6px;
     font-weight: 400;
 }
 
 .mensaje-fecha {
     font-size: 0.78rem;
-    color: #64748b;
+    color: var(--gris);
+    background-color: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 999px;
 }
 
 .mensaje-asunto {
@@ -368,8 +306,7 @@ textarea:focus {
 .mensaje-texto {
     margin-top: 10px;
     padding: 12px 14px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
     border-radius: 8px;
     font-size: 0.92rem;
     color: #475569;
@@ -383,28 +320,46 @@ textarea:focus {
     margin-top: 10px;
 }
 
+.btn-eliminar {
+    background-color: #fee2e2;
+    color: var(--peligro);
+    border: none;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-eliminar:hover {
+    background-color: #fecaca;
+}
+
 .vacio {
-    color: #64748b;
+    color: var(--gris);
     text-align: center;
     padding: 20px 0;
 }
 
+/* --- Footer --- */
 .footer {
-    background-color: #0f172a;
-    color: #94a3b8;
+    background-color: #0b1b3a;
+    color: #93a4c3;
     padding: 20px 0;
     margin-top: auto;
     text-align: center;
     font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-    .panel-tienda,
+/* --- Responsive --- */
+@media (max-width: 700px) {
     .fila-contacto {
         grid-template-columns: 1fr;
     }
 
     .nav-links {
-        display: none;
+        gap: 4px;
     }
 }
