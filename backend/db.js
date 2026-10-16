@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 // Configuración de la conexión de la BD
 
 const host = process.env.DB_HOST || "localhost";
-const port = Number(process.env.DB_PORT) || 3306
+const port = Number(process.env.DB_PORT) || 3306;
 const user = process.env.DB_USER || "root";
 const password = process.env.DB_PASSWORD || "";
 const database = process.env.DB_NAME || "tienda";
@@ -18,11 +18,12 @@ const configuracion = {
   database,
 };
 
-// Si el host es remoto (TiDB Cloud), habilitar  el SSL automaticamente
-if (host !== "localhostt" && host !== "127.0.0.1") {
+// Si el host es remoto (TiDB Cloud), habilitar el SSL automaticamente
+// CAMBIO: "localhostt" -> "localhost" (con la s doble, en local intentaba usar SSL)
+if (host !== "localhost" && host !== "127.0.0.1") {
   configuracion.ssl = {
     minVersion: "TLSv1.2",
-    rejectUnauhorized: true,
+    rejectUnauthorized: true, // CAMBIO: estaba escrito "rejectUnauhorized"
   };
 }
 
